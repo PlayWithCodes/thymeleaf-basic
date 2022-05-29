@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>${user.username} = [[${user.username}]]</li>
+    <li>${user['username']} = [[${user['username']}]]</li>
+    <li>${user.age} = [[${user.age}]]</li>
+</ul>
+<ul>
+    <li>${userList[0].username} = [[${userList[0].username}]]</li>
+    <li>${userList[0]['username']} = [[${userList[0]['username']}]]</li>
+    <li>${userList[0].age} = [[${userList[0].age}]]</li>
+</ul>
+<ul>
+    <li>${userMap['userA'].username} = [[${userMap['userA'].username}]]</li>
+    <li>${userMap['userA']['username']} = [[${userMap['userA']['username']}]]</li>
+    <li>${userMap['userA'].age} = [[${userMap['userA'].age}]]</li>
+</ul>
+<ul>
+    <li th:with="localVar=${userList[0]}">
+        th:with="localVar=${users[0]} = [[${localVar.username}]]
+    </li>
+</ul>
+</body>
+</html>
