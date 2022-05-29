@@ -86,4 +86,16 @@ public class BasicController {
         model.addAttribute("data", "Thymeleaf!");
         return "/basic/literal";
     }
+
+    @GetMapping("/operation")
+    public String operation(Model model) {
+        model.addAttribute("nullData", null);
+        model.addAttribute("data", "Thymeleaf!");
+        return "/basic/operation";
+    }
+
+    @GetMapping("/attribute")
+    public String attribute() {
+        return "/basic/attribute";
+    }
 }
