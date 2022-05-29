@@ -25,7 +25,7 @@ public class BasicController {
         model.addAttribute("escape", "<b>escape</b>");
         model.addAttribute("unescape", "<b>unescape</b>");
 
-        return "/basic/text-basic";
+        return "basic/text-basic";
     }
 
     @GetMapping("/variable")
@@ -45,7 +45,7 @@ public class BasicController {
         model.addAttribute("userList", userList);
         model.addAttribute("userMap", userMap);
 
-        return "/basic/variable";
+        return "basic/variable";
     }
 
     @AllArgsConstructor
@@ -58,7 +58,7 @@ public class BasicController {
     @GetMapping("/basic-objects")
     public String basicObjects(HttpSession session) {
         session.setAttribute("sessionData", "hello session");
-        return "/basic/basic-objects";
+        return "basic/basic-objects";
     }
 
     @Component("helloBean")
@@ -71,38 +71,38 @@ public class BasicController {
     @GetMapping("/date")
     public String date(Model model) {
         model.addAttribute("localDateTime", LocalDateTime.now());
-        return "/basic/date";
+        return "basic/date";
     }
 
     @GetMapping("/link")
     public String link(Model model) {
         model.addAttribute("param1", "data1");
         model.addAttribute("param2", "data2");
-        return "/basic/link";
+        return "basic/link";
     }
 
     @GetMapping("/literal")
     public String literal(Model model) {
         model.addAttribute("data", "Thymeleaf!");
-        return "/basic/literal";
+        return "basic/literal";
     }
 
     @GetMapping("/operation")
     public String operation(Model model) {
         model.addAttribute("nullData", null);
         model.addAttribute("data", "Thymeleaf!");
-        return "/basic/operation";
+        return "basic/operation";
     }
 
     @GetMapping("/attribute")
     public String attribute() {
-        return "/basic/attribute";
+        return "basic/attribute";
     }
 
     @GetMapping("/each")
     public String each(Model model) {
         addUsers(model);
-        return "/basic/each";
+        return "basic/each";
     }
 
     private void addUsers(Model model) {
@@ -117,25 +117,25 @@ public class BasicController {
     @GetMapping("/condition")
     public String condition(Model model) {
         addUsers(model);
-        return "/basic/condition";
+        return "basic/condition";
     }
 
     @GetMapping("/comments")
     public String comments(Model model) {
         model.addAttribute("data", "Thymeleaf!");
-        return "/basic/comments";
+        return "basic/comments";
     }
 
     @GetMapping("/block")
     public String block(Model model) {
         addUsers(model);
-        return "/basic/block";
+        return "basic/block";
     }
 
     @GetMapping("/javascript")
     public String javascript(Model model) {
         addUsers(model);
         model.addAttribute("user", new User("UserD\"", 40));
-        return "/basic/javascript";
+        return "basic/javascript";
     }
 }
