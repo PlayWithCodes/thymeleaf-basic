@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>기본 테이블</h1>
+<table border="1">
+    <tr>
+        <th>username</th>
+        <th>age</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}">th:text="${user.username}"</td>
+        <td th:text="${user.age}">th:text="${user.age}"</td>
+    </tr>
+</table>
+
+<h1>반복 상태 유지</h1>
+<table border="1">
+    <tr>
+        <th>count</th>
+        <th>username</th>
+        <th>age</th>
+        <th>etc</th>
+    </tr>
+    <tr th:each="user, userStat : ${users}">
+        <!--userStat 생략가능-->
+        <td th:text="${userStat.count}">h:text="${userStat.count}"</td>
+        <td th:text="${user.username}">th:text="${user.username}"</td>
+        <td th:text="${user.age}">th:text="${user.age}"</td>
+        <td>
+            ${userStat.index} = <span th:text="${userStat.index}"></span><br>
+            ${userStat.count} = <span th:text="${userStat.count}"></span><br>
+            ${userStat.size} = <span th:text="${userStat.size}"></span><br>
+            ${userStat.even} = <span th:text="${userStat.even}"></span><br>
+            ${userStat.odd} = <span th:text="${userStat.odd}"></span><br>
+            ${userStat.first} = <span th:text="${userStat.first}"></span><br>
+            ${userStat.last} = <span th:text="${userStat.last}"></span><br>
+            ${userStat.current.username} = <span th:text="${userStat.current.username}"></span><br>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
