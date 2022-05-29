@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 자바스크립트 인라인 사용 전 -->
+<script>
+    var username = [[${user.username}]]; /* [[${user.username}]] = UserD */
+    var age = [[${user.age}]];
+
+    //자바스크립트 내추럴 템플릿
+    var username2 = /*[[${user.username}]]*/ "test username"; /* 타임리프값이 무시됨 */
+
+    //객체
+    var user = [[${user}]]; /* 타임리프 적용 전 객체의 toString() 값이 적용됨 */
+</script>
+
+<!-- 자바스크립트 인라인 사용 후 -->
+<script th:inline="javascript">
+    var username = [[${user.username}]]; /* [[${user.username}]] = "UserD" */
+    var age = [[${user.age}]];
+
+    //자바스크립트 내추럴 템플릿
+    var username2 = /*[[${user.username}]]*/ "test username"; /* 타임리프값으로 적용됨 */
+
+    //객체
+    var user = [[${user}]]; /* 타임리프가 객체를 json으로 변경함*/
+</script>
+
+<script th:inline="javascript">
+    [# th:each="user, stat : ${users}"]
+    var user[[${stat.count}]] = [[${user}]];
+    [/]
+</script>
+</body>
+</html>
