@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>thymeleaf basic objects</h1>
+<ul>
+    <li>#request = [[${#request}]]</li>
+    <li>#response = [[${#response}]]</li>
+    <li>#session = [[${#session}]]</li>
+    <li>#servletContext = [[${#servletContext}]]</li>
+    <li>#locale = [[${#locale}]]</li>
+    <li>param = [[${param.paramData}]]</li>
+    <li>session = [[${session.sessionData}]]</li>
+    <li>@bean = [[${@helloBean.hello('spring bean!')}]]</li>
+</ul>
+</body>
+</html>
