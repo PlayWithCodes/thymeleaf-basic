@@ -11,7 +11,12 @@ public class TemplateController {
 
 
     @GetMapping("/fragment")
-    public String fragment(Model model) {
+    public String fragment() {
         return "/template/fragment/fragmentMain";
+    }
+
+    @GetMapping("/layout")
+    public String layout() {
+        return "/template/layout/layoutMain";
     }
 }
